@@ -24,9 +24,9 @@ public class Palindrome {
 			inputCharList=new LinkedHashSet <Character>();
 			addPalChars=new LinkedHashSet <Character>();
 			
-			System.out.println("Define your palindrome.  Default behavior is yes.  Type n for no for the following questions and then press Enter");
+			System.out.println("Define your palindrome.");
 			
-			System.out.println("Do you want to ignore capitalization?");
+			System.out.println("Do you want to ignore capitalization?    Default behavior is yes.  Otherwise, type n for no.  Press Enter");
 			text=new String();
 			text=input.nextLine();
 			if( text.isEmpty() != true){
@@ -37,18 +37,18 @@ public class Palindrome {
 				}
 			}
 			
-			System.out.println("Do you want to ignore input that isn't a letter or number?");
+			System.out.println("Do you want to add characters (other than letters and numbers) to be considered in the Palindrome?");
+			System.out.println("Default behavior is n and any character that is not a letter or number will be ignored.");
+			System.out.println("Otherwise, type y for yes.  Press Enter");
 			text=new String();
 			text=input.nextLine();
 			if( text.isEmpty() != true){
 				text.toLowerCase();
 				textAsChar=new Character(text.charAt(0));
-				if( textAsChar.equals( new Character('n') ) ){
+				if( textAsChar.equals( new Character('y') ) ){
 					letterNumOnly=false;
-					/*
-					 * If input that isn't a letter or number is suppose to be considered, ask the user to type any input that should be ignored"
-					 */
-					System.out.println("Type each character that's not a letter or number that you want to test in the palindrome");
+
+					System.out.println("Type each character that you want tested with the letters and numbers");
 					text=new String();
 					text=input.nextLine();
 					if(text.isEmpty()){
@@ -77,7 +77,7 @@ public class Palindrome {
 				backIndex=text.length()-1;
 				
 				if(ignoreCaps){
-					text.toLowerCase();
+					text=text.toLowerCase();
 				}
 				
 				for(;frontIndex<text.length();frontIndex++){
