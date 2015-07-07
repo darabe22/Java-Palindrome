@@ -58,6 +58,9 @@ public class Palindrome {
 						int length=text.length();
 						addPalChars=new LinkedHashSet<Character>();
 						
+						if(ignoreCaps){
+							text.toLowerCase();
+						}
 						for(; index<length; index++ ){
 							addPalChars.add(text.charAt(index));
 						}
